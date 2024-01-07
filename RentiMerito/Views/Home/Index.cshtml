@@ -21,21 +21,14 @@
     <div>
         @foreach(var car in Model)
         {
-            <div class="d-inline p2 round-shadow card">
+            <div class="d-inline p2">
                 <p>@car.CarBrand @car.CarName</p>
                 <p>$200</p>
-                @* <button onclick="redirectToCarDetails(@car.CarId)">More!</button> *@
-                <button id="@car.CarId">@Html.ActionLink("More!", "CarDetails", "Cars", car.CarId)</button>
+                <button id="@car.CarId">@Html.ActionLink("More!", "CarDetails", "Cars", new { carId = car.CarId })</button>
             </div>
         }
     </div>
 </div>
-
-@* <script>
-    function redirectToCarDetails(carId){
-        window.location.href = '/Cars/CarDetails/' + carId;
-    }
-</script> *@
 
 <style>
     .card
