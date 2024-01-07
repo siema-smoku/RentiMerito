@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Services
+namespace Domain.Services.Cars
 {
     public class CarService : ICarService
     {
@@ -23,7 +23,11 @@ namespace Domain.Services
             return cars;
         }
 
-        public CarModel? GetCarById(int id) 
+        public List<CarModel> GetNonRentedCars()
+        {
+            return _carData.GetNonRentedCars().Result.ToList();
+        }
+        public CarModel? GetCarById(int id)
         {
             return _carData.GetCarById(id).Result;
         }

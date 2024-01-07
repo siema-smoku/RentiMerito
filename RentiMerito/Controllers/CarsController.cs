@@ -1,4 +1,4 @@
-﻿using Domain.Services;
+﻿using Domain.Services.Cars;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 
@@ -15,7 +15,8 @@ namespace RentiMerito.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var cars = _carService.GetNonRentedCars();
+            return View(cars);
         }
 
         public IActionResult CarDetails(int carId)
