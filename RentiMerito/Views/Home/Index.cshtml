@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Domain.Models.Cars.CarModel>;
+
+<div class="text-center">
+    <h4 class="display-4">Rent a car</h4>
+    <div class="round-shadow">
+        <form>
+            <input type="text" name="city" id="city" placeholder="Pickup City"/>
+            <label>Rent Start</label>
+            <input type="date" name="startDate" id="startDate" />
+            <label>Rent End</label>
+            <input type="date" name="endDate" id="endDate" />
+            <input type="checkbox" name="checkAge" id="checkAge" />
+            <label for="checkAge">Driver age between 30-65</label>
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+    <div>
+        @foreach(var car in Model)
+        {
+            <div class="d-inline p2 round-shadow card">
+                <p>@car.CarBrand @car.CarName</p>
+                <p>$200</p>
+                @* <button onclick="redirectToCarDetails(@car.CarId)">More!</button> *@
+                <button id="@car.CarId">@Html.ActionLink("More!", "CarDetails", "Cars", car.CarId)</button>
+            </div>
+        }
+    </div>
+</div>
+
+@* <script>
+    function redirectToCarDetails(carId){
+        window.location.href = '/Cars/CarDetails/' + carId;
+    }
+</script> *@
+
+<style>
+    .card
+    {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .round-shadow
+    {
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>

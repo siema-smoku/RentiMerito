@@ -1,3 +1,6 @@
+using Domain.Data;
+using Domain.DbAccess;
+using Domain.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RentiMerito.Data;
@@ -18,7 +21,11 @@ namespace RentiMerito
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            builder.Services.AddRazorPages();
+            builder.Services.AddControllersWithViews();
+
+            builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+            builder.Services.AddTransient<ICarData, CarData>();
+            builder.Services.AddTransient<ICarService, CarService>();
 
             var app = builder.Build();
 
@@ -29,7 +36,7 @@ namespace RentiMerito
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -41,6 +48,13 @@ namespace RentiMerito
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapControllerRoute(
+                name:"cardetails",
+                pattern: "{controller=Cars}/{action=CarDetails}/{id}");
 
             app.MapRazorPages();
 
