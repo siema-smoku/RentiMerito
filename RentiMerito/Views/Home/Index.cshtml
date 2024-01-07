@@ -18,28 +18,34 @@
             <input type="submit" value="Search" />
         </form>
     </div>
+    <br />
     <div>
-        @foreach(var car in Model)
-        {
-            <div class="d-inline p2">
-                <p>@car.CarBrand @car.CarName</p>
-                <p>$200</p>
-                <button id="@car.CarId">@Html.ActionLink("More!", "CarDetails", "Cars", new { carId = car.CarId })</button>
-            </div>
-        }
+        <div class="card-group">
+            @foreach (var car in Model)
+            {
+                <div class="card card-margin">
+                    <div class="card-title">
+                        <p>@car.CarBrand @car.CarName</p>
+                    </div>
+                    <img src="..." alt="@car.CarName" class="card-img-bottom" />
+                    <p class="card-text">$200</p>
+                    <button id="@car.CarId" class="btn btn-warning">@Html.ActionLink("More!", "CarDetails", "Cars", new { carId = car.CarId })</button>
+                </div>
+            }
+        </div>
     </div>
 </div>
 
 <style>
-    .card
+    .card-margin
     {
-        width: 50px;
-        height: 50px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
-    
     .round-shadow
     {
         border-radius: 5px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 5px;
     }
 </style>
