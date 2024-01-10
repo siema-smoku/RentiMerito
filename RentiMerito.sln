@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RentiDatabase", "RentiDatabase\RentiDatabase.sqlproj", "{64455AA0-CE00-494C-94BF-459EB8ACB3EA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{D70ED832-9193-4FD7-ADE8-197ECADB4A25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentiMerito", "RentiMerito\RentiMerito.csproj", "{8FDECB59-D84F-4EDF-98F6-974F3BE01A80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentiMerito", "RentiMerito\RentiMerito.csproj", "{8FDECB59-D84F-4EDF-98F6-974F3BE01A80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,12 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{64455AA0-CE00-494C-94BF-459EB8ACB3EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64455AA0-CE00-494C-94BF-459EB8ACB3EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64455AA0-CE00-494C-94BF-459EB8ACB3EA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{64455AA0-CE00-494C-94BF-459EB8ACB3EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64455AA0-CE00-494C-94BF-459EB8ACB3EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{64455AA0-CE00-494C-94BF-459EB8ACB3EA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{D70ED832-9193-4FD7-ADE8-197ECADB4A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D70ED832-9193-4FD7-ADE8-197ECADB4A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D70ED832-9193-4FD7-ADE8-197ECADB4A25}.Release|Any CPU.ActiveCfg = Release|Any CPU

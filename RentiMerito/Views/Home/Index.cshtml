@@ -7,7 +7,7 @@
 <div class="text-center">
     <h4 class="display-4">Rent a car</h4>
     <div class="round-shadow">
-        <form>
+        <form asp-controller="Rent" asp-action="RentableCars" method="post">
             <div class="mb-3">
                 <input type="text" class="form-control" name="city" id="city" placeholder="Pickup City" />
             </div>
@@ -33,7 +33,7 @@
                     <div class="card-title">
                         <p>@car.CarBrand @car.CarName</p>
                     </div>
-                    <img src="..." alt="@car.CarName" class="card-img-bottom" />
+                    <img src="@car.CarImage" alt="@car.CarName" class="card-img-bottom" />
                     <p class="card-text">$200</p>
                     <button id="@car.CarId" class="btn btn-warning">@Html.ActionLink("More!", "CarDetails", "Cars", new { carId = car.CarId })</button>
                 </div>

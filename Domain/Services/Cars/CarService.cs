@@ -31,5 +31,26 @@ namespace Domain.Services.Cars
         {
             return _carData.GetCarById(id).Result;
         }
+
+        public List<CarModel> GetRentableCars(string city, DateTime startDate, DateTime endDate)
+        {
+            var result = new List<CarModel>();
+            var allCars = _carData.GetCars().Result;
+            foreach (var car in allCars)
+            {
+                if(car.CarCity == city )
+                {
+                    if (!car.IsRented)
+                    {
+                        result.Add(car);
+                    }
+                    else if (car.RentEndDate < startDate)
+                    {
+                        result.Add(car);
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

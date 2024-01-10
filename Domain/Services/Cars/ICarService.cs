@@ -7,5 +7,6 @@ namespace Domain.Services.Cars
         List<CarModel> DisplaySixCars();
         CarModel? GetCarById(int id);
         List<CarModel> GetNonRentedCars();
+        List<CarModel> GetRentableCars(string city, DateTime startDate, DateTime endDate);
     }
 }

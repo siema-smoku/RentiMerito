@@ -1,0 +1,12 @@
+﻿@model List<Domain.Models.Cars.CarModel>;
+@if(Model.Count <= 0)
+{
+    <h5 style="color: red">No cars found for the provided city in those dates!</h5>
+}
+else
+{
+    @foreach(var car in Model)
+    {
+        await Html.RenderPartialAsync("../Shared/_CarCard.cshtml", car);
+    }
+}

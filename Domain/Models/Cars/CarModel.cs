@@ -15,5 +15,9 @@ namespace Domain.Models.Cars
         public DateTime? RentStartDate { get; set; }
         public DateTime? RentEndDate { get; set; }
         public int? RentUserId { get; set; }
+        public string CarCity { get; set; }
+        public string FuelType { get; set; }
+        public string GearboxType { get; set; }
+        public string CarImage { get; set;}
     }
 }

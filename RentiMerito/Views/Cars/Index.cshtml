@@ -1,21 +1,7 @@
 ﻿@model List<Domain.Models.Cars.CarModel>
 
-@foreach(var car in Model)
+@foreach (var car in Model)
 {
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="@car.CarName">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">@car.CarBrand @car.CarName</h5>
-                    <p class="card-text">$200</p>
-                    @* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> *@
-                    <button id="@car.CarId" class="btn btn-warning">@Html.ActionLink("More!", "CarDetails", "Cars", new { carId = car.CarId })</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
+    await Html.RenderPartialAsync("../Shared/_CarCard.cshtml", car);
 }
+
